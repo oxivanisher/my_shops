@@ -248,7 +248,7 @@ class Shop
      */
     public function getUrl()
     {
-        return $this->nurlame;
+        return $this->url;
     }
 
     /**
