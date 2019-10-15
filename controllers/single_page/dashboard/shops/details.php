@@ -80,11 +80,7 @@ class Details extends DashboardPageController
 
             $value = $post->get('comment');
             $value = is_string($value) ? trim($value) : '';
-            if ($value === '') {
-                $errors->add(t('Please specify the comment of the shop.'));
-            } else {
-                $entity->setComment($value);
-            }
+            $entity->setComment($value);
 
             $value = $post->get('url');
             $value = is_string($value) ? trim($value) : '';
