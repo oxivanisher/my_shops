@@ -37,19 +37,19 @@ $id = $shop->getId() ?: 'new';
     </div>
     <div class="form-group">
         <?= $form->label('location', t('location')) ?>
-        <?= $form->number('location', $shop->getLocation(), ['maxlength' => '255', 'required' => 'required']) ?>
+        <?= $form->text('location', $shop->getLocation(), ['maxlength' => '255', 'required' => 'required']) ?>
     </div>
     <div class="form-group">
         <?= $form->label('products', t('products')) ?>
-        <?= $form->number('products', $shop->getProducts(), ['maxlength' => '255', 'required' => 'required']) ?>
+        <?= $form->text('products', $shop->getProducts(), ['maxlength' => '255', 'required' => 'required']) ?>
     </div>
     <div class="form-group">
         <?= $form->label('comment', t('comment')) ?>
-        <?= $form->number('comment', $shop->getComment(), ['maxlength' => '255']) ?>
+        <?= $form->text('comment', $shop->getComment(), ['maxlength' => '255']) ?>
     </div>
     <div class="form-group">
         <?= $form->label('url', t('url')) ?>
-        <?= $form->number('url', $shop->getUrl(), ['maxlength' => '255', 'required' => 'required']) ?>
+        <?= $form->text('url', $shop->getUrl(), ['maxlength' => '255', 'required' => 'required']) ?>
     </div>
     <div class="ccm-dashboard-form-actions-wrapper">
         <div class="ccm-dashboard-form-actions">
