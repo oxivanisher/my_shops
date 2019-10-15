@@ -33,7 +33,7 @@ class Controller extends Package
      *
      * @var string
      */
-    protected $pkgVersion = '1.0.2';
+    protected $pkgVersion = '1.0.3';
 
     /**
      * Map folders to PHP namespaces, for automatic class autoloading.
@@ -41,7 +41,7 @@ class Controller extends Package
      * @var array
      */
     protected $pkgAutoloaderRegistries = [
-        'src' => 'MyShop',
+        'src' => 'MyShops',
     ];
 
     /**
