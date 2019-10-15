@@ -2,9 +2,9 @@
 <concrete5-cif version="1.0">
 
     <singlepages>
-        <page package="my_boats" name="Boats" description="" pagetype="" path="/dashboard/boats" filename="/dashboard/boats.php">
+        <page package="my_shops" name="Shops" description="" pagetype="" path="/dashboard/shops" filename="/dashboard/shops.php">
         </page>
-        <page package="my_boats" name="Boat" description="" pagetype="" path="/dashboard/boats/details" filename="/dashboard/boats/details.php">
+        <page package="my_shops" name="Shop" description="" pagetype="" path="/dashboard/shops/details" filename="/dashboard/shops/details.php">
             <attributes>
                 <attributekey handle="exclude_nav"><value>1</value></attributekey>
             </attributes>

@@ -1,17 +1,17 @@
 <?php
 
-namespace Concrete\Package\MyBoats\Controller\Search;
+namespace Concrete\Package\MyShops\Controller\Search;
 
 use Concrete\Core\Controller\AbstractController;
 use Concrete\Core\Search\StickyRequest;
-use MyBoats\Search\Columns\Sets\Boats as ColumnSet;
-use MyBoats\Search\Lists\Boats as SearchList;
-use MyBoats\Search\Results\Boats as SearchResult;
+use MyShops\Search\Columns\Sets\Shops as ColumnSet;
+use MyShops\Search\Lists\Shops as SearchList;
+use MyShops\Search\Results\Shops as SearchResult;
 
 /**
- * Controller for the boat search.
+ * Controller for the shop search.
  */
-class Boats extends AbstractController
+class Shops extends AbstractController
 {
     /**
      * Instance of a class that holds the criteria of the last performed search.
@@ -28,7 +28,7 @@ class Boats extends AbstractController
     public function getStickyRequest()
     {
         if ($this->stickyRequest === null) {
-            $this->stickyRequest = $this->app->make(StickyRequest::class, ['myboats.boats']);
+            $this->stickyRequest = $this->app->make(StickyRequest::class, ['myshops.shops']);
         }
 
         return $this->stickyRequest;
@@ -127,6 +127,26 @@ class Boats extends AbstractController
             $searchList->filterByName($q);
         }
 
+        $q = isset($req['location']) ? $req['location'] : null;
+        if (is_string($q) && $q !== '') {
+            $searchList->filterByLocation($q);
+        }
+
+        $q = isset($req['products']) ? $req['products'] : null;
+        if (is_string($q) && $q !== '') {
+            $searchList->filterByProducts($q);
+        }
+
+        $q = isset($req['comment']) ? $req['comment'] : null;
+        if (is_string($q) && $q !== '') {
+            $searchList->filterByComment($q);
+        }
+
+        $q = isset($req['url']) ? $req['url'] : null;
+        if (is_string($q) && $q !== '') {
+            $searchList->filterByUrl($q);
+        }
+
         $paginationSize = null;
         $q = isset($req['paginationSize']) ? $req['paginationSize'] : null;
         if ($q && $valn->integer($q)) {
@@ -141,7 +161,7 @@ class Boats extends AbstractController
         }
         $searchList->setItemsPerPage($paginationSize);
 
-        $this->searchResult = new SearchResult($columnSet, $searchList, $this->app->make('url/manager')->resolve(['dashboard/boats']));
+        $this->searchResult = new SearchResult($columnSet, $searchList, $this->app->make('url/manager')->resolve(['dashboard/shops']));
     }
 
     /**

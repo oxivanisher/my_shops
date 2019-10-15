@@ -10,23 +10,23 @@ defined('C5_EXECUTE') or die('Access Denied.');
 /* @var Concrete\Core\Page\Page $c */
 /* @var Concrete\Theme\Dashboard\PageTheme $theme */
 
-/* @var Concrete\Package\MyBoats\Controller\SinglePage\Dashboard\Boats $controller */
+/* @var Concrete\Package\MyShops\Controller\SinglePage\Dashboard\Shops $controller */
 
 /* @var string $name */
 /* @var enabled $enabled */
 /* @var int $paginationSize */
 /* @var array $allowedPaginationSizes */
-/* @var MyBoats\Search\Results\Boats $result */
+/* @var MyShops\Search\Results\Shops $result */
 
 ?>
 <div class="ccm-dashboard-header-buttons">
     <a href="<?= $view->action('details', 'new') ?>" class="btn btn-primary">
         <i class="fa fa-plus"></i>
-        <?= t('Add boat') ?>
+        <?= t('Add shop') ?>
     </a>
 </div>
 <form class="ccm-search-fields" role="form" action="<?= $view->action('') ?>" method="POST">
-    <?php $token->output('myboats-boats-search') ?>
+    <?php $token->output('myshops-shops-search') ?>
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -60,11 +60,11 @@ defined('C5_EXECUTE') or die('Access Denied.');
 
 <?php
 $items = $result->getItems();
-/* @var MyBoats\Search\Results\Items\Boats[] $items */
+/* @var MyShops\Search\Results\Items\Shops[] $items */
 if (empty($items)) {
     ?>
     <div class="alert alert-warning">
-        <?= t('No boats found.') ?>
+        <?= t('No shops found.') ?>
     </div>
     <?php
 } else {
@@ -88,9 +88,9 @@ if (empty($items)) {
                 <tbody>
                     <?php
                     foreach ($items as $item) {
-                        /* @var MyBoats\Search\Results\Item\Boats $item */
+                        /* @var MyShops\Search\Results\Item\Shops $item */
                         ?>
-                        <tr class="boat <?= $item->getRowClass() ?>" data-boat-details-url="<?= h($item->getViewUrl()) ?>">
+                        <tr class="shop <?= $item->getRowClass() ?>" data-shop-details-url="<?= h($item->getViewUrl()) ?>">
                             <?php
                             foreach ($item->getColumns() as $column) {
                                 ?>
@@ -121,10 +121,10 @@ if (empty($items)) {
         function setup() {
             var r = false;
             try {
-                var $rows = $('tr[data-boat-details-url]');
+                var $rows = $('tr[data-shop-details-url]');
                 if ($rows.length > 0) {
                     $rows.on('click', function () {
-                        window.location.href = $(this).data('boat-details-url');
+                        window.location.href = $(this).data('shop-details-url');
                     });
                     r = true;
                 }

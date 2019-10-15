@@ -1,19 +1,19 @@
 <?php
 
-namespace MyBoats\Search\Lists;
+namespace MyShops\Search\Lists;
 
 use Concrete\Core\Application\Application;
 use Concrete\Core\Application\ApplicationAwareInterface;
 use Concrete\Core\Search\ItemList\Database\ItemList;
 use Concrete\Core\Search\Pagination\Pagination;
 use Doctrine\ORM\EntityManager;
-use MyBoats\Entity\Boat;
+use MyShops\Entity\Shop;
 use Pagerfanta\Adapter\DoctrineDbalAdapter;
 
 /**
- * Class that manages the criterias of the boat searches.
+ * Class that manages the criterias of the shop searches.
  */
-class Boats extends ItemList implements ApplicationAwareInterface
+class Shops extends ItemList implements ApplicationAwareInterface
 {
     /**
      * The application container.
@@ -37,7 +37,7 @@ class Boats extends ItemList implements ApplicationAwareInterface
      *
      * @var string
      */
-    protected $paginationPageParameter = 'boats_page';
+    protected $paginationPageParameter = 'shops_page';
 
     /**
      * The columns that can be sorted via the web interface.
@@ -45,9 +45,12 @@ class Boats extends ItemList implements ApplicationAwareInterface
      * @var array
      */
     protected $autoSortColumns = [
-        'b.name',
-        'b.enabled',
-        'b.length',
+        's.name',
+        's.enabled',
+        's.location',
+        's.products',
+        's.comment',
+        's.url',
     ];
 
     /**
@@ -57,13 +60,13 @@ class Boats extends ItemList implements ApplicationAwareInterface
      */
     public function createQuery()
     {
-        $this->query->select('b.id')
-            ->from('Boats', 'b')
+        $this->query->select('s.id')
+            ->from('Shops', 's')
         ;
     }
 
     /**
-     * Filter the results by part of the boat name.
+     * Filter the results by part of the shop name.
      *
      * @param string $name
      */
@@ -71,60 +74,70 @@ class Boats extends ItemList implements ApplicationAwareInterface
     {
         $name = (string) $name;
         if ($name !== '') {
-            $this->query->andWhere($this->query->expr()->like('b.name', $this->query->createNamedParameter('%' . addcslashes($name, '%_\\') . '%')));
+            $this->query->andWhere($this->query->expr()->like('s.name', $this->query->createNamedParameter('%' . addcslashes($name, '%_\\') . '%')));
         }
     }
 
     /**
-     * Filter the enabled/disabled boats.
+     * Filter the enabled/disabled shops.
      *
      * @param bool $enabled
      */
     public function filterByEnabled($enabled)
     {
-        $this->query->andWhere($this->query->expr()->eq('b.enabled', $enabled ? 1 : 0));
+        $this->query->andWhere($this->query->expr()->eq('s.enabled', $enabled ? 1 : 0));
     }
 
     /**
-     * Include in the results only the boats without a length.
-     */
-    public function filterByWithoutLength()
-    {
-        $this->query->andWhere($this->query->expr()->isNull('b.length'));
-    }
-
-    /**
-     * Include in the results only the boats with a length.
-     */
-    public function filterByWithLength()
-    {
-        $this->query->andWhere($this->query->expr()->isNotNull('b.length'));
-    }
-
-    /**
-     * Include in the results only the boats with aspecified minimum length.
+     * Filter the results by part of the shop location.
      *
-     * @param mixed $value
+     * @param string $location
      */
-    public function filterByMinimumLength($value)
+    public function filterByLocation($location)
     {
-        $this->query->andWhere($this->query->expr()->andX()
-            ->add($this->query->expr()->isNotNull('b.length'))
-            ->add($this->query->expr()->gte('b.length', $this->query->createNamedParameter($value)))
-        );
+        $location = (string) $location;
+        if ($location !== '') {
+            $this->query->andWhere($this->query->expr()->like('s.location', $this->query->createNamedParameter('%' . addcslashes($location, '%_\\') . '%')));
+        }
     }
 
     /**
-     * Include in the results only the boats with aspecified minimum length.
+     * Filter the results by part of the shop products.
      *
-     * @param mixed $value
+     * @param string $products
      */
-    public function filterByMaximumLength($value)
+    public function filterByProducts($products)
     {
-        $this->query->andWhere($this->query->expr()->andX()
-            ->add($this->query->expr()->isNotNull('b.length'))
-            ->add($this->query->expr()->lte('b.length', $this->query->createNamedParameter($value)))
-            );
+        $products = (string) $products;
+        if ($products !== '') {
+            $this->query->andWhere($this->query->expr()->like('s.products', $this->query->createNamedParameter('%' . addcslashes($products, '%_\\') . '%')));
+        }
+    }
+
+    /**
+     * Filter the results by part of the shop comment.
+     *
+     * @param string $comment
+     */
+    public function filterByComment($comment)
+    {
+        $comment = (string) $comment;
+        if ($comment !== '') {
+            $this->query->andWhere($this->query->expr()->like('s.comment', $this->query->createNamedParameter('%' . addcslashes($comment, '%_\\') . '%')));
+        }
+    }
+
+    /**
+     * Filter the results by part of the shop url.
+     *
+     * @param string $url
+     */
+    public function filterByUrl($url)
+    {
+        $url = (string) $url;
+        if ($url !== '') {
+            $this->query->andWhere($this->query->expr()->like('s.url', $this->query->createNamedParameter('%' . addcslashes($url, '%_\\') . '%')));
+        }
     }
 
     /**
@@ -137,7 +150,7 @@ class Boats extends ItemList implements ApplicationAwareInterface
         $query = $this->deliverQueryObject();
         $query
             ->resetQueryParts(['groupBy', 'orderBy'])
-            ->select('count(distinct b.id)')
+            ->select('count(distinct s.id)')
             ->setMaxResults(1);
         $result = $query->execute()->fetchColumn();
 
@@ -156,7 +169,7 @@ class Boats extends ItemList implements ApplicationAwareInterface
             function (\Doctrine\DBAL\Query\QueryBuilder $query) {
                 $query
                     ->resetQueryParts(['groupBy', 'orderBy'])
-                    ->select('count(distinct b.id)')
+                    ->select('count(distinct s.id)')
                     ->setMaxResults(1);
             }
         );
@@ -174,6 +187,6 @@ class Boats extends ItemList implements ApplicationAwareInterface
     {
         $entityManager = $this->app->make(EntityManager::class);
         /* @var EntityManager $entityManager */
-        return $entityManager->find(Boat::class, $queryRow['id']);
+        return $entityManager->find(Shop::class, $queryRow['id']);
     }
 }

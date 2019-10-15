@@ -1,16 +1,16 @@
 <?php
 
-namespace MyBoats\Search\Results\Item;
+namespace MyShops\Search\Results\Item;
 
 use Concrete\Core\Search\Column\Set;
 use Concrete\Core\Search\Result\Item;
 use Concrete\Core\Search\Result\Result;
 use URL;
 
-class Boats extends Item
+class Shops extends Item
 {
     /**
-     * @var \MyBoats\Entity\Boat
+     * @var \MyShops\Entity\Shop
      */
     protected $entity;
 
@@ -27,7 +27,7 @@ class Boats extends Item
      */
     public function getRowClass()
     {
-        return $this->entity->isEnabled() ? 'boat-enabled' : 'boat-disabled';
+        return $this->entity->isEnabled() ? 'shop-enabled' : 'shop-disabled';
     }
 
     /**
@@ -37,6 +37,6 @@ class Boats extends Item
      */
     public function getViewUrl()
     {
-        return URL::to('/dashboard/boats/details', $this->entity->getId());
+        return URL::to('/dashboard/shops/details', $this->entity->getId());
     }
 }

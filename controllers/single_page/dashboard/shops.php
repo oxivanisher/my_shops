@@ -1,31 +1,31 @@
 <?php
 
-namespace Concrete\Package\MyBoats\Controller\SinglePage\Dashboard;
+namespace Concrete\Package\MyShops\Controller\SinglePage\Dashboard;
 
 use Concrete\Core\Page\Controller\DashboardPageController;
-use Concrete\Package\MyBoats\Controller\Search\Boats as SearchController;
+use Concrete\Package\MyShops\Controller\Search\Shops as SearchController;
 
 defined('C5_EXECUTE') or die('Access Denied.');
 
 /**
- * Controller of the /dashboard/boats page.
+ * Controller of the /dashboard/shops page.
  */
-class Boats extends DashboardPageController
+class Shops extends DashboardPageController
 {
     /**
      * {@inheritdoc}
      *
      * @see \Concrete\Core\Page\Controller\DashboardPageController::on_start()
-     */    
+     */
     public function on_start()
     {
         parent::on_start();
         $this->addHeaderItem(<<<EOT
 <style>
-table.ccm-search-results-table tr.boat {
+table.ccm-search-results-table tr.shop {
     cursor: pointer;
 }
-table.ccm-search-results-table tr.boat-disabled td {
+table.ccm-search-results-table tr.shop-disabled td {
     background-color: #fee;
 }
 </style>
@@ -40,7 +40,7 @@ EOT
     {
         $resetSearch = false;
         if ($this->request->isPost()) {
-            if (!$this->token->validate('myboats-boats-search')) {
+            if (!$this->token->validate('myshops-shops-search')) {
                 $this->error->add($this->token->getErrorMessage());
             } else {
                 $resetSearch = true;

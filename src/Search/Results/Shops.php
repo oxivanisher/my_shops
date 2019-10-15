@@ -1,23 +1,23 @@
 <?php
 
-namespace MyBoats\Search\Results;
+namespace MyShops\Search\Results;
 
 use Concrete\Core\Search\Result\Result as SearchResult;
 use Pagerfanta\View\TwitterBootstrap3View;
 
 /**
- * Class that contains the results of the boat searches.
+ * Class that contains the results of the shop searches.
  */
-class Boats extends SearchResult
+class Shops extends SearchResult
 {
     /**
      * {@inheritdoc}
      *
      * @see \Concrete\Core\Search\Result\Result::getItemDetails()
      */
-    public function getItemDetails($boat)
+    public function getItemDetails($shop)
     {
-        return new Item\Boats($this, $this->listColumns, $boat);
+        return new Item\Shops($this, $this->listColumns, $shop);
     }
 
     /**

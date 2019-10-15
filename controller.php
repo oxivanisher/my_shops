@@ -1,11 +1,11 @@
 <?php
 
-namespace Concrete\Package\MyBoats;
+namespace Concrete\Package\MyShops;
 
 use Concrete\Core\Backup\ContentImporter;
 use Concrete\Core\Package\Package;
 use Doctrine\ORM\EntityManager;
-use MyBoats\Entity\Boat;
+use MyShops\Entity\Shop;
 
 /**
  * The package controller.
@@ -26,7 +26,7 @@ class Controller extends Package
      *
      * @var string
      */
-    protected $pkgHandle = 'my_boats';
+    protected $pkgHandle = 'my_shops';
 
     /**
      * The package version.
@@ -41,7 +41,7 @@ class Controller extends Package
      * @var array
      */
     protected $pkgAutoloaderRegistries = [
-        'src' => 'MyBoats',
+        'src' => 'MyShop',
     ];
 
     /**
@@ -51,7 +51,7 @@ class Controller extends Package
      */
     public function getPackageName()
     {
-        return t('My Boats');
+        return t('My Shops');
     }
 
     /**
@@ -61,7 +61,7 @@ class Controller extends Package
      */
     public function getPackageDescription()
     {
-        return t('Sample package to show the power of ItemLists');
+        return t('Listing for shops');
     }
 
     /**
@@ -73,7 +73,7 @@ class Controller extends Package
     {
         $pkg = parent::install();
         $this->installXml();
-        $this->addInitialBoats();
+        $this->addInitialShops();
     }
 
     /**
@@ -97,24 +97,20 @@ class Controller extends Package
     }
 
     /**
-     * Add some sample boats.
+     * Add some sample shops.
      */
-    private function addInitialBoats()
+    private function addInitialShops()
     {
         $em = $this->app->make(EntityManager::class);
         /* @var EntityManager $em */
-        $repo = $em->getRepository(Boat::class);
-        $r = $repo->createQueryBuilder('b')->select('b.id')->setMaxResults(1)->getQuery()->execute();
+        $repo = $em->getRepository(Shop::class);
+        $r = $repo->createQueryBuilder('s')->select('s.id')->setMaxResults(1)->getQuery()->execute();
         if (empty($r)) {
             foreach ([
-                Boat::create('My Boat Of Unknown Length', true),
-                Boat::create('My Tiny Boat', false, 1.5),
-                Boat::create('My Medium Boat', true, 5),
-                Boat::create('My Big Boat', true, 15),
-                Boat::create('My Huge Boat', false, 100),
-                Boat::create('Titanic', true, 209),
-            ] as $boat) {
-                $em->persist($boat);
+                Shop::create('My super FPV shop', true, "Berne, Switzerland", "FPV and general RC", "This is the best shop ever!", "https://myshop.example.tld"),
+                Shop::create('My super RC shop', false, "Zürich, Switzerland", "RC specialities", "This is the second best shop ever!", "https://myother.shop.tld"),
+            ] as $shop) {
+                $em->persist($shop);
             }
             $em->flush();
         }

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: my_boats 1.0.0\n"
+"Project-Id-Version: my_shops 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,154 +12,154 @@ msgstr ""
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: packages/my_boats/install.xml:5
-msgid "Boats"
+#: packages/my_shops/install.xml:5
+msgid "Shops"
 msgstr ""
 
-#: packages/my_boats/install.xml:7
-msgid "Boat"
+#: packages/my_shops/install.xml:7
+msgid "Shop"
 msgstr ""
 
-#: packages/my_boats/controller.php:54
-msgid "My Boats"
+#: packages/my_shops/controller.php:54
+msgid "My Shops"
 msgstr ""
 
-#: packages/my_boats/controller.php:64
+#: packages/my_shops/controller.php:64
 msgid "Sample package to show the power of ItemLists"
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:25
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:41
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:105
-msgid "Unable to find the specified boat."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:25
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:41
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:105
+msgid "Unable to find the specified shop."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:56
-msgid "Please specify the name of the boat."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:56
+msgid "Please specify the name of the shop."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:64
-msgid "Please specify if the boat is enabled."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:64
+msgid "Please specify if the shop is enabled."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:72
-msgid "Invalid boat length specified."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:72
+msgid "Invalid shop length specified."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:81
-msgid "The new boat has been added."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:81
+msgid "The new shop has been added."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:81
-msgid "The boat has been updated."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:81
+msgid "The shop has been updated."
 msgstr ""
 
-#: packages/my_boats/controllers/single_page/dashboard/boats/details.php:107
-msgid "The boat has been deleted."
+#: packages/my_shops/controllers/single_page/dashboard/shops/details.php:107
+msgid "The shop has been deleted."
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:23
-#: packages/my_boats/single_pages/dashboard/boats.php:33
-#: packages/my_boats/src/Search/Columns/Sets/Boats.php:21
+#: packages/my_shops/single_pages/dashboard/shops/details.php:23
+#: packages/my_shops/single_pages/dashboard/shops.php:33
+#: packages/my_shops/src/Search/Columns/Sets/Shops.php:21
 msgid "Name"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:30
-msgctxt "Boat"
+#: packages/my_shops/single_pages/dashboard/shops/details.php:30
+msgctxt "Shop"
 msgid "Enabled/active"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:32
-msgctxt "Boat"
+#: packages/my_shops/single_pages/dashboard/shops/details.php:32
+msgctxt "Shop"
 msgid "Enabled (published)"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:35
-msgctxt "Boat"
+#: packages/my_shops/single_pages/dashboard/shops/details.php:35
+msgctxt "Shop"
 msgid "Disabled (not published)"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:39
-#: packages/my_boats/src/Search/Columns/Sets/Boats.php:33
+#: packages/my_shops/single_pages/dashboard/shops/details.php:39
+#: packages/my_shops/src/Search/Columns/Sets/Shops.php:33
 msgid "Length"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:44
-#: packages/my_boats/single_pages/dashboard/boats/details.php:68
+#: packages/my_shops/single_pages/dashboard/shops/details.php:44
+#: packages/my_shops/single_pages/dashboard/shops/details.php:68
 msgid "Cancel"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:49
-#: packages/my_boats/single_pages/dashboard/boats/details.php:69
+#: packages/my_shops/single_pages/dashboard/shops/details.php:49
+#: packages/my_shops/single_pages/dashboard/shops/details.php:69
 msgid "Delete"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:53
+#: packages/my_shops/single_pages/dashboard/shops/details.php:53
 msgid "Create"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:53
+#: packages/my_shops/single_pages/dashboard/shops/details.php:53
 msgid "Save"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:64
-msgid "Are you sure you want to permanently delete this boat?"
+#: packages/my_shops/single_pages/dashboard/shops/details.php:64
+msgid "Are you sure you want to permanently delete this shop?"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:65
+#: packages/my_shops/single_pages/dashboard/shops/details.php:65
 msgid "WARNING: this operation can not be undone!"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats/details.php:81
+#: packages/my_shops/single_pages/dashboard/shops/details.php:81
 msgid "Removal confirmation"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:25
-msgid "Add boat"
+#: packages/my_shops/single_pages/dashboard/shops.php:25
+msgid "Add shop"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:41
+#: packages/my_shops/single_pages/dashboard/shops.php:41
 msgid "Enabled"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:43
-#: packages/my_boats/src/Search/Columns/YesNoColumn.php:24
+#: packages/my_shops/single_pages/dashboard/shops.php:43
+#: packages/my_shops/src/Search/Columns/YesNoColumn.php:24
 msgid "Yes"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:43
-#: packages/my_boats/src/Search/Columns/YesNoColumn.php:24
+#: packages/my_shops/single_pages/dashboard/shops.php:43
+#: packages/my_shops/src/Search/Columns/YesNoColumn.php:24
 msgid "No"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:49
+#: packages/my_shops/single_pages/dashboard/shops.php:49
 msgid "Items per page"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:57
+#: packages/my_shops/single_pages/dashboard/shops.php:57
 msgid "Search"
 msgstr ""
 
-#: packages/my_boats/single_pages/dashboard/boats.php:67
-msgid "No boats found."
+#: packages/my_shops/single_pages/dashboard/shops.php:67
+msgid "No shops found."
 msgstr ""
 
-#: packages/my_boats/src/Search/Columns/Sets/Boats.php:27
-msgctxt "Boat"
+#: packages/my_shops/src/Search/Columns/Sets/Shops.php:27
+msgctxt "Shop"
 msgid "Enabled"
 msgstr ""
 
-#: packages/my_boats/src/Search/Results/Boats.php:54
+#: packages/my_shops/src/Search/Results/Shops.php:54
 msgctxt "Pagination"
 msgid "&larr; Previous"
 msgstr ""
 
-#: packages/my_boats/src/Search/Results/Boats.php:55
+#: packages/my_shops/src/Search/Results/Shops.php:55
 msgctxt "Pagination"
 msgid "Next &rarr;"
 msgstr ""
 
-#: packages/my_boats/src/Search/Results/Boats.php:56
+#: packages/my_shops/src/Search/Results/Shops.php:56
 msgctxt "Pagination"
 msgid "(current)"
 msgstr ""

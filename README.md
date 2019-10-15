@@ -1,5 +1,3 @@
-# My Boats
+# My Shops
 
-This is a sample concrete5 package to show how you can use ItemLists.
-
-More details here: https://documentation.concrete5.org/tutorials/item-lists
+This is a simple concrete5 package to manage and list shops. It is based on https://github.com/mlocati/my_boats

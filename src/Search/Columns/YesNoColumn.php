@@ -1,6 +1,6 @@
 <?php
 
-namespace MyBoats\Search\Columns;
+namespace MyShops\Search\Columns;
 
 use Concrete\Core\Search\Column\Column;
 
